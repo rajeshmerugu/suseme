@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SUSEME</title>
+  <link rel="icon" type="image/jpg" href="susume.jpg" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app">
+    <!-- Login Screen -->
+    <div class="screen join-screen active">
+      <div class="form">
+        <div class="top-bar">
+          <select id="language-select">
+            <option value="en">English (India)</option>
+            <option value="te">తెలుగు</option>
+            <option value="hi">हिंदी</option>
+            <option value="ta">தமிழ்</option>
+            <option value="kn">ಕನ್ನಡ</option>
+          </select>
+        </div>
+        <div class="logo-container">
+          <img src="susume.jpg" alt="logo" width="100" height="100">
+          <h2>SUSEME</h2>
+        </div>
+        <div class="form-input">
+          <input type="text" id="username" placeholder="Username" autocomplete="off" />
+        </div>
+        <div class="form-input password-wrapper">
+          <input type="password" id="password" placeholder="Password" autocomplete="off" />
+          <button id="toggle-password" title="Show/Hide Password">Show</button>
+        </div>
+        <div class="form-input">
+          <button id="join-user">Login</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Chat Screen -->
+    <div class="screen chat-screen">
+      <div class="top-bar">
+  <span class="chat-logo">SUSEME</span>
+  <div class="menu-container">
+    <button class="menu-button">⋮</button>
+    <div class="menu-dropdown" id="menuDropdown">
+      <button id="dark-mode-toggle">Toggle Dark Mode</button>
+      <button id="exit-chat">Logout</button>
+    </div>
+  </div>
+</div>
+
+      <div class="header">
+        <div class="logo">
+          <img src="susume.jpg" alt="logo" width="60" height="60">
+          <h2>SUSEME</h2>
+        </div>
+        <div class="menu-container">
+          <div class="menu-button">&#8942;</div>
+          <div class="menu-dropdown">
+            <button id="toggle-dark">Dark Mode</button>
+            <button id="exit-chat">Logout</button>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="main-content">
+        <div class="user-list">
+          <h3>Online Users</h3>
+          <ul id="users"></ul>
+        </div>
+
+        <div class="chat-area">
+          <div class="messages"></div>
+          <div class="reply-preview"><span class="reply-text"></span><button id="cancel-reply">×</button></div>
+
+          <div class="typebox">
+            <input type="text" id="message-input" placeholder="Enter text" autocomplete="off" />
+            <button id="send-message">Send</button>
+            <button id="recordBtn">🎤</button>
+            <button id="callBtn">📞</button>
+            <button id="endCallBtn" style="display:none;">⛔ End</button>
+          </div>
+        </div>
+      </div>
+
+      <audio id="sendSound" src="send.mp3" preload="auto"></audio>
+      <audio id="receiveSound" src="receive.wav" preload="auto"></audio>
+      <audio id="ringtone" src="ringtone.mp3" preload="auto" loop></audio>
+      <audio id="remoteAudio" autoplay></audio>
+
+      <!-- Accept/Decline call box -->
+      <div id="incoming-call" class="incoming-call-box" style="display:none;">
+        <p>Incoming Call...</p>
+        <button id="acceptCallBtn">Accept</button>
+        <button id="declineCallBtn">Decline</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="code.js"></script>
+</body>
+</html>
