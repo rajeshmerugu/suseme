@@ -6,8 +6,8 @@ const app = express();
 const server = http.createServer(app);
 const io = socketIO(server);
 
-const allowedUsers = ["Rajesh", "Saketh", "Sinvitha", "Asritha", "Jasmitha","Bhuvaneshwari","Chandrika","Mrudhula"];
-const PASSWORD = "Ram_charan";
+const allowedUsers = ["RAJESH", "SAKETH", "SINVITHA", "ASRITHA", "JASMITHA", "BHUVANESWARI", "CHANDRIKA", "MRUDHULA"];
+const PASSWORD = "KLU2025";
 
 const onlineUsers = new Map();
 let chatHistory = [];
@@ -84,5 +84,5 @@ io.on("connection", (socket) => {
   });
 });
 
-const PORT = process.env.PORT || 100;
+const PORT = process.env.PORT || 1000;
 server.listen(PORT, () => console.log(`Server running on port ${PORT}`));
